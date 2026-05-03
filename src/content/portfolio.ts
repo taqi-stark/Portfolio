@@ -1,0 +1,72 @@
+export const portfolio = {
+  name: "Ali Taqi",
+  initials: "AT",
+  role: "Python Backend Engineer",
+  tagline:
+    "Backend engineer crafting scalable Python systems with Django & FastAPI.",
+  location: "Remote · Worldwide",
+  email: "hello@alitaqi.dev",
+  availability: "Open to freelance & full-time",
+  bio: "I build resilient backends, clean APIs, and the boring infrastructure that keeps products running at 3am. Five years deep in the Python ecosystem, shipping for startups and high-traffic platforms.",
+  socials: {
+    github: "https://github.com/",
+    linkedin: "https://linkedin.com/in/",
+    twitter: "https://twitter.com/",
+  },
+  stats: [
+    { value: "5+", label: "yrs in Python" },
+    { value: "30+", label: "APIs shipped" },
+    { value: "10M+", label: "req/day handled" },
+  ],
+  coreStack: [
+    "Django", "Django REST", "FastAPI", "Celery",
+    "PostgreSQL", "Redis", "Docker", "AWS",
+  ],
+  languages: ["Python", "SQL", "TypeScript", "Bash"],
+  tooling: ["Docker", "GitHub Actions", "Nginx", "Pytest", "Sentry", "Terraform"],
+  currently: [
+    "Building event-driven services with FastAPI + NATS",
+    "Reading: Designing Data-Intensive Applications",
+    "Exploring: pgvector & RAG pipelines",
+  ],
+  projects: [
+    {
+      name: "Ledger API",
+      summary: "High-throughput double-entry ledger powering payments at 10M req/day.",
+      tech: ["FastAPI", "PostgreSQL", "Redis", "Kafka"],
+      role: "Lead backend",
+      live: "#",
+      repo: "#",
+      featured: true,
+    },
+    {
+      name: "Multi-tenant CMS",
+      summary: "Headless CMS with role-based workflows and a tenant-aware ORM layer.",
+      tech: ["Django", "DRF", "Postgres", "S3"],
+      role: "Backend lead",
+      live: "#",
+      repo: "#",
+    },
+    {
+      name: "Async Worker Pipeline",
+      summary: "Celery + RabbitMQ ETL processing 50M events nightly with retries & DLQ.",
+      tech: ["Celery", "RabbitMQ", "Python", "Grafana"],
+      role: "Solo engineer",
+      live: "#",
+      repo: "#",
+    },
+    {
+      name: "Realtime Dashboard",
+      summary: "WebSocket-driven analytics dashboard with sub-second updates.",
+      tech: ["FastAPI", "WebSockets", "Redis", "TS"],
+      role: "Full-stack",
+      live: "#",
+      repo: "#",
+    },
+  ],
+  experience: [
+    { role: "Senior Backend Engineer", company: "Stealth Fintech", period: "2023 — Now", impact: "Led migration from monolith to event-driven FastAPI services." },
+    { role: "Backend Engineer", company: "Acme SaaS", period: "2021 — 2023", impact: "Scaled Django platform from 10k to 500k MAU." },
+    { role: "Software Engineer", company: "Studio Labs", period: "2020 — 2021", impact: "Shipped 12+ client APIs across Django & DRF." },
+  ],
+};
