@@ -84,12 +84,13 @@
     color: transparent;
   }
   .tile {
-    @apply relative rounded-2xl border border-border bg-card overflow-hidden;
-    box-shadow: var(--shadow-tile);
-    transition: transform 0.4s ease, border-color 0.3s ease, box-shadow 0.4s ease;
+    @apply relative rounded-2xl overflow-hidden;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    transition: transform 0.4s ease;
   }
   .tile:hover {
-    border-color: hsl(var(--primary) / 0.5);
     transform: translateY(-2px);
   }
   .tile-glow::before {
