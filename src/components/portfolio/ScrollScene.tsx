@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { Code2, Database, Server, Terminal as TerminalIcon, Boxes, Braces, Cloud, Container } from "lucide-react";
+import { Laptop3D } from "./Laptop3D";
 
 /**
  * Animated, scroll-reactive background:
@@ -14,13 +15,14 @@ export const ScrollScene = () => {
   // Background color per section (Midnight Indigo → deep violet → ink → teal-ink → indigo).
   const background = useTransform(
     progress,
-    [0, 0.22, 0.45, 0.7, 1],
+    [0, 0.18, 0.4, 0.6, 0.8, 1],
     [
-      "hsl(240 50% 5%)",
-      "hsl(258 55% 7%)",
-      "hsl(225 55% 6%)",
-      "hsl(200 55% 6%)",
-      "hsl(243 55% 7%)",
+      "hsl(0 0% 100%)",
+      "hsl(258 60% 60%)",
+      "hsl(330 70% 35%)",
+      "hsl(180 80% 25%)",
+      "hsl(240 60% 10%)",
+      "hsl(0 0% 0%)",
     ]
   );
 
@@ -63,6 +65,9 @@ export const ScrollScene = () => {
 
       {/* Subtle dotted grid */}
       <div className="pointer-events-none fixed inset-0 -z-10 bg-grid opacity-50" />
+
+      {/* 3D laptop that rotates with scroll */}
+      <Laptop3D progress={progress} />
 
       {/* Floating tech glyphs with parallax */}
       <FloatingGlyphs progress={progress} />
