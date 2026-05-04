@@ -51,6 +51,21 @@
     --sidebar-border: 240 35% 18%;
     --sidebar-ring: 243 75% 65%;
   }
+
+  /* Scroll-driven theme: when background is bright, use dark text. */
+  html[data-bg-theme="light"] {
+    --foreground: 240 60% 8%;
+    --muted-foreground: 240 30% 25%;
+    --border: 240 20% 80%;
+    --primary-glow: 243 80% 45%;
+  }
+  html[data-bg-theme="dark"] {
+    --foreground: 230 40% 96%;
+    --muted-foreground: 230 20% 75%;
+    --border: 240 35% 22%;
+    --primary-glow: 243 90% 78%;
+  }
+  html, body, * { transition: color 0.5s ease, border-color 0.5s ease; }
 }
 
 @layer base {

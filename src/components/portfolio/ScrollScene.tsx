@@ -1,4 +1,5 @@
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring, useMotionValueEvent } from "framer-motion";
+import { useEffect } from "react";
 import { Code2, Database, Server, Terminal as TerminalIcon, Boxes, Braces, Cloud, Container } from "lucide-react";
 import { Laptop3D } from "./Laptop3D";
 
@@ -12,19 +13,30 @@ export const ScrollScene = () => {
   const { scrollYProgress } = useScroll();
   const progress = useSpring(scrollYProgress, { stiffness: 60, damping: 20, mass: 0.4 });
 
-  // Background color per section (Midnight Indigo → deep violet → ink → teal-ink → indigo).
-  const background = useTransform(
-    progress,
-    [0, 0.18, 0.4, 0.6, 0.8, 1],
-    [
-      "hsl(0 0% 100%)",
-      "hsl(258 60% 60%)",
-      "hsl(330 70% 35%)",
-      "hsl(180 80% 25%)",
-      "hsl(240 60% 10%)",
-      "hsl(0 0% 0%)",
-    ]
-  );
+  // Background color per section. Lightness values are tracked separately so
+  // we can flip the foreground theme to stay readable.
+  const stops = [0, 0.18, 0.4, 0.6, 0.8, 1];
+  const colors = [
+    "hsl(0 0% 100%)",        // white
+    "hsl(258 60% 60%)",      // violet
+    "hsl(330 70% 35%)",      // magenta-ink
+    "hsl(180 80% 25%)",      // teal-ink
+    "hsl(240 60% 10%)",      // deep indigo
+    "hsl(0 0% 0%)",          // black
+  ];
+  const lightness = [100, 60, 35, 25, 10, 0];
+  const background = useTransform(progress, stops, colors);
+  const bgLightness = useTransform(progress, stops, lightness);
+
+  // Toggle a light/dark data attribute on <html> based on background brightness.
+  useMotionValueEvent(bgLightness, "change", (l) => {
+    const isLight = l > 55;
+    document.documentElement.dataset.bgTheme = isLight ? "light" : "dark";
+  });
+  useEffect(() => {
+    document.documentElement.dataset.bgTheme = "light";
+    return () => { delete document.documentElement.dataset.bgTheme; };
+  }, []);
 
   // Two parallax glow blobs.
   const blobAY = useTransform(progress, [0, 1], ["0%", "120%"]);

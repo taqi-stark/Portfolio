@@ -1,4 +1,4 @@
-import { Canvas, useFrame } from "@react-three/fiber";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Float, Environment, ContactShadows } from "@react-three/drei";
 import { motion, useTransform, type MotionValue } from "framer-motion";
 import { useRef, Suspense } from "react";
@@ -11,13 +11,14 @@ const Laptop = ({ progress }: { progress: MotionValue<number> }) => {
   useFrame(() => {
     const p = progress.get();
     if (group.current) {
-      group.current.rotation.y = p * Math.PI * 2.2;
-      group.current.rotation.x = -0.25 + Math.sin(p * Math.PI) * 0.35;
-      group.current.position.y = -0.2 + Math.sin(p * Math.PI * 2) * 0.4;
+      // Subtle model motion — main movement is the camera.
+      group.current.rotation.y = -0.4 + p * 0.6;
+      group.current.position.y = -0.1 + Math.sin(p * Math.PI) * 0.15;
     }
     if (lid.current) {
-      // Open lid as you scroll
-      lid.current.rotation.x = -Math.PI / 2 + Math.min(p * 3, 1) * (Math.PI / 2 - 0.2);
+      // Open lid smoothly across first third of scroll
+      const open = Math.min(p * 3, 1);
+      lid.current.rotation.x = -Math.PI / 2 + open * (Math.PI / 2 - 0.15);
     }
   });
 
@@ -67,6 +68,22 @@ const Laptop = ({ progress }: { progress: MotionValue<number> }) => {
   );
 };
 
+const CameraRig = ({ progress }: { progress: MotionValue<number> }) => {
+  const { camera } = useThree();
+  useFrame(() => {
+    const p = progress.get();
+    // Cinematic dolly: top-down close → orbit around → pull back high
+    const angle = -Math.PI * 0.15 + p * Math.PI * 1.6;
+    const radius = 4.5 + Math.sin(p * Math.PI) * 1.8;
+    const height = 3.2 - p * 1.6 + Math.sin(p * Math.PI * 2) * 0.4;
+    camera.position.x = Math.sin(angle) * radius;
+    camera.position.z = Math.cos(angle) * radius;
+    camera.position.y = height;
+    camera.lookAt(0, 0.4, 0);
+  });
+  return null;
+};
+
 export const Laptop3D = ({ progress }: { progress: MotionValue<number> }) => {
   const opacity = useTransform(progress, [0, 0.05, 0.95, 1], [0, 0.9, 0.9, 0.2]);
   return (
@@ -75,13 +92,14 @@ export const Laptop3D = ({ progress }: { progress: MotionValue<number> }) => {
       style={{ opacity }}
     >
       <div className="h-[80vh] w-full max-w-5xl">
-        <Canvas shadows camera={{ position: [0, 1.2, 5.5], fov: 40 }} dpr={[1, 1.5]}>
+        <Canvas shadows camera={{ position: [0, 3, 5.5], fov: 42 }} dpr={[1, 1.5]}>
           <Suspense fallback={null}>
+            <CameraRig progress={progress} />
             <ambientLight intensity={0.4} />
             <directionalLight position={[5, 6, 4]} intensity={1.2} castShadow />
             <pointLight position={[-4, 2, -2]} intensity={1.5} color="#7c6cff" />
             <pointLight position={[4, -2, 3]} intensity={1.2} color="#22d3ee" />
-            <Float speed={1.2} rotationIntensity={0.2} floatIntensity={0.4}>
+            <Float speed={1} rotationIntensity={0.05} floatIntensity={0.15}>
               <Laptop progress={progress} />
             </Float>
             <ContactShadows position={[0, -1.2, 0]} opacity={0.5} scale={8} blur={2.5} />
