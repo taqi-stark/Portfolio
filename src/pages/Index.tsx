@@ -5,10 +5,11 @@ import { WorkBento } from "@/components/portfolio/WorkBento";
 import { AboutBento } from "@/components/portfolio/AboutBento";
 import { ContactBento } from "@/components/portfolio/ContactBento";
 import { Footer } from "@/components/portfolio/Footer";
+import { ScrollScene } from "@/components/portfolio/ScrollScene";
 
 const Index = () => (
-  <div className="relative min-h-screen overflow-hidden bg-background">
-    <div className="pointer-events-none fixed inset-0 -z-10 bg-grid opacity-60" />
+  <div className="relative min-h-screen overflow-x-hidden">
+    <ScrollScene />
     <Nav />
     <main>
       <Hero />
