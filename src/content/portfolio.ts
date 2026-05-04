@@ -5,12 +5,12 @@ export const portfolio = {
   tagline:
     "Backend engineer crafting scalable Python systems with Django & FastAPI.",
   location: "Remote · Worldwide",
-  email: "hello@alitaqi.dev",
+  email: "alitaqiuos@gmail.com",
   availability: "Open to freelance & full-time",
   bio: "I build resilient backends, clean APIs, and the boring infrastructure that keeps products running at 3am. Five years deep in the Python ecosystem, shipping for startups and high-traffic platforms.",
   socials: {
-    github: "https://github.com/",
-    linkedin: "https://linkedin.com/in/",
+    github: "https://github.com/taqi-stark",
+    linkedin: "https://www.linkedin.com/in/ali-taqi-171b863a9",
     twitter: "https://twitter.com/",
   },
   stats: [
