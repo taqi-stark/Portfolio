@@ -1,73 +1,83 @@
 import { portfolio } from "@/content/portfolio";
 import { Tile, TileLabel } from "./Tile";
-
-const codeSnippet = `from fastapi import FastAPI
-
-app = FastAPI()
-
-@app.get("/health")
-async def health() -> dict[str, str]:
-    return {"status": "ok"}`;
+import { StackTerminal } from "./StackTerminal";
 
 export const StackBento = () => (
-  <section id="stack" className="mx-auto max-w-6xl px-6 py-24">
+  <section id="stack" className="content-auto mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20 md:py-24">
     <SectionHeader
       kicker="// stack"
       title="Tools I reach for"
       subtitle="Battle-tested across production systems handling real traffic."
     />
-    <div className="mt-12 grid gap-4 md:grid-cols-3 md:grid-rows-2">
+    <div className="mt-10 grid gap-4 md:mt-12 md:grid-cols-3 md:grid-rows-2">
       <Tile className="md:col-span-2 md:row-span-2">
         <TileLabel>core stack</TileLabel>
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
           {portfolio.coreStack.map((s) => (
             <div
               key={s}
-              className="rounded-xl border border-border bg-muted/30 px-4 py-5 text-center font-mono text-sm transition-colors hover:border-primary/60 hover:text-foreground"
+              className="stack-token"
             >
               {s}
             </div>
           ))}
         </div>
-        <div className="mt-6 rounded-xl border border-border bg-background/60 p-5">
-          <div className="mb-3 font-mono text-xs text-muted-foreground">
-            main.py
-          </div>
-          <pre className="overflow-x-auto font-mono text-sm leading-relaxed text-muted-foreground">
-            <code>{codeSnippet}</code>
-          </pre>
-        </div>
+        <StackTerminal />
       </Tile>
 
       {portfolio.stats.map((s, i) => (
         <Tile key={s.label} delay={i * 0.05} className="flex flex-col justify-between">
           <TileLabel>metric_{i + 1}</TileLabel>
           <div>
-            <div className="font-mono text-4xl font-bold text-gradient">
+            <div className="font-mono text-4xl font-bold text-primary sm:text-5xl md:text-6xl">
               {s.value}
             </div>
-            <div className="mt-1 text-sm text-muted-foreground">{s.label}</div>
+            <div className="mt-2 text-base font-medium text-foreground">{s.label}</div>
           </div>
         </Tile>
       ))}
     </div>
 
-    <div className="mt-4 grid gap-4 md:grid-cols-2">
-      <Tile>
-        <TileLabel>languages</TileLabel>
+    <div className="mt-4 grid gap-4 sm:grid-cols-2 md:grid-cols-4">
+      <Tile className="sm:col-span-2">
+        <TileLabel>languages & databases</TileLabel>
         <div className="flex flex-wrap gap-2">
-          {portfolio.languages.map((l) => (
-            <span key={l} className="chip">{l}</span>
+          {[...portfolio.languages, ...(portfolio.databases || [])].map((l) => (
+            <span key={l} className="chip bg-primary/10 border-primary/20 text-foreground">{l}</span>
           ))}
         </div>
       </Tile>
-      <Tile>
-        <TileLabel>tooling</TileLabel>
+      <Tile className="sm:col-span-2">
+        <TileLabel>api & tooling</TileLabel>
         <div className="flex flex-wrap gap-2">
-          {portfolio.tooling.map((l) => (
-            <span key={l} className="chip">{l}</span>
+          {[...(portfolio.apiTools || []), ...portfolio.tooling].map((l) => (
+            <span key={l} className="chip bg-primary/10 border-primary/20 text-foreground">{l}</span>
           ))}
         </div>
+      </Tile>
+      
+      {/* Expanded deep dives */}
+      <Tile className="sm:col-span-2 md:col-span-2 h-full">
+        <TileLabel>backend concepts</TileLabel>
+        <ul className="mt-5 flex flex-col gap-0">
+          {(portfolio.backendConcepts || []).map((c: string) => 
+            <li key={c} className="flex items-start gap-4 border-b border-border/40 py-3.5 first:pt-0 last:border-0 last:pb-0">
+              <span className="font-mono text-primary font-bold mt-0.5 select-none text-base">→</span>
+              <span className="text-sm font-bold text-foreground/90 leading-tight">{c}</span>
+            </li>
+          )}
+        </ul>
+      </Tile>
+      <Tile className="sm:col-span-2 md:col-span-2 h-full">
+        <TileLabel>devops & infra</TileLabel>
+        <ul className="mt-5 flex flex-col gap-0">
+          {(portfolio.devOps || []).map((c: string) => 
+            <li key={c} className="flex items-start gap-4 border-b border-border/40 py-3.5 first:pt-0 last:border-0 last:pb-0">
+              <span className="font-mono text-emerald-500 font-bold mt-0.5 select-none text-base">→</span>
+              <span className="text-sm font-bold text-foreground/90 leading-tight">{c}</span>
+            </li>
+          )}
+        </ul>
       </Tile>
     </div>
   </section>
@@ -76,9 +86,9 @@ export const StackBento = () => (
 export const SectionHeader = ({
   kicker, title, subtitle,
 }: { kicker: string; title: string; subtitle?: string }) => (
-  <div className="max-w-2xl">
-    <div className="font-mono text-sm text-primary-glow/80">{kicker}</div>
-    <h2 className="mt-3 font-mono text-3xl font-bold md:text-4xl">{title}</h2>
-    {subtitle && <p className="mt-3 text-muted-foreground">{subtitle}</p>}
+  <div className="max-w-3xl">
+    <div className="font-mono text-sm font-bold text-primary uppercase tracking-widest">{kicker}</div>
+    <h2 className="mt-3 font-mono text-3xl font-bold leading-tight text-foreground sm:mt-4 sm:text-4xl md:text-5xl">{title}</h2>
+    {subtitle && <p className="mt-3 text-base font-medium leading-7 text-foreground/90 sm:mt-4 sm:text-lg">{subtitle}</p>}
   </div>
 );

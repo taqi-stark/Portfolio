@@ -9,16 +9,17 @@ import { ScrollScene } from "@/components/portfolio/ScrollScene";
 
 const Index = () => (
   <div className="relative min-h-screen overflow-x-hidden">
-    <ScrollScene />
-    <Nav />
-    <main>
-      <Hero />
-      <StackBento />
-      <WorkBento />
-      <AboutBento />
-      <ContactBento />
-    </main>
-    <Footer />
+    <ScrollScene>
+      <Nav />
+      <main id="main-content">
+        <Hero />
+        <StackBento />
+        <WorkBento />
+        <AboutBento />
+        <ContactBento />
+      </main>
+      <Footer />
+    </ScrollScene>
   </div>
 );
 

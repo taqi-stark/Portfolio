@@ -5,8 +5,8 @@ import { Menu } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 const links = [
-  { label: "Work", href: "#work" },
   { label: "Stack", href: "#stack" },
+  { label: "Work", href: "#work" },
   { label: "About", href: "#about" },
   { label: "Contact", href: "#contact" },
 ];
@@ -14,9 +14,23 @@ const links = [
 export const Nav = () => {
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
-    onScroll();
-    window.addEventListener("scroll", onScroll);
+    let ticking = false;
+
+    const updateScrolled = () => {
+      ticking = false;
+      const nextScrolled = window.scrollY > 8;
+      setScrolled((current) => (current === nextScrolled ? current : nextScrolled));
+    };
+
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        window.requestAnimationFrame(updateScrolled);
+      }
+    };
+
+    updateScrolled();
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
@@ -24,11 +38,11 @@ export const Nav = () => {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all ${
         scrolled
-          ? "backdrop-blur-md bg-background/70 border-b border-border"
+          ? "backdrop-blur-xl bg-background/95 border-b border-border shadow-sm"
           : "bg-transparent"
       }`}
     >
-      <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
+      <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
         <a href="#top" className="flex items-center gap-2 font-mono">
           <span className="grid h-8 w-8 place-items-center rounded-md bg-gradient-primary text-primary-foreground text-sm font-bold">
             {portfolio.initials}
@@ -40,7 +54,7 @@ export const Nav = () => {
             <a
               key={l.href}
               href={l.href}
-              className="font-mono text-sm text-muted-foreground transition-colors hover:text-foreground"
+              className="font-mono text-sm font-bold text-foreground/90 transition-colors hover:text-primary drop-shadow-sm"
             >
               {l.label}
             </a>
@@ -57,11 +71,11 @@ export const Nav = () => {
             <SheetContent side="right" className="bg-card">
               <div className="mt-10 flex flex-col gap-6">
                 {links.map((l) => (
-                  <a key={l.href} href={l.href} className="font-mono text-lg">
+                  <a key={l.href} href={l.href} className="font-mono text-lg font-bold text-white hover:text-white/80 transition-colors">
                     {l.label}
                   </a>
                 ))}
-                <Button asChild className="bg-gradient-primary">
+                <Button asChild className="w-full bg-gradient-primary">
                   <a href={`mailto:${portfolio.email}`}>Hire me</a>
                 </Button>
               </div>
