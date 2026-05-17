@@ -10,8 +10,8 @@ import { CommandPalette } from "./components/portfolio/CommandPalette";
 const queryClient = new QueryClient();
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
       <a href="#main-content" className="skip-link">
         Skip to content
       </a>

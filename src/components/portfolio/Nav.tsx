@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { portfolio } from "@/content/portfolio";
 import { Menu } from "lucide-react";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
 
 const links = [
   { label: "Stack", href: "#stack" },
@@ -60,24 +60,28 @@ export const Nav = () => {
             </a>
           ))}
           <Button asChild size="sm" className="bg-gradient-primary shadow-glow">
-            <a href={`mailto:${portfolio.email}`}>Hire me</a>
+            <a href={`mailto:${portfolio.email}`} aria-label="Hire me via email">Hire me</a>
           </Button>
         </div>
         <div className="md:hidden">
           <Sheet>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon"><Menu /></Button>
+              <Button variant="ghost" size="icon" aria-label="Open Mobile Menu"><Menu /></Button>
             </SheetTrigger>
             <SheetContent side="right" className="bg-card">
               <div className="mt-10 flex flex-col gap-6">
                 {links.map((l) => (
-                  <a key={l.href} href={l.href} className="font-mono text-lg font-bold text-white hover:text-white/80 transition-colors">
-                    {l.label}
-                  </a>
+                  <SheetClose asChild key={l.href}>
+                    <a href={l.href} className="font-mono text-lg font-bold text-foreground hover:text-primary transition-colors">
+                      {l.label}
+                    </a>
+                  </SheetClose>
                 ))}
-                <Button asChild className="w-full bg-gradient-primary">
-                  <a href={`mailto:${portfolio.email}`}>Hire me</a>
-                </Button>
+                <SheetClose asChild>
+                  <Button asChild className="w-full bg-gradient-primary text-white">
+                    <a href={`mailto:${portfolio.email}`} aria-label="Hire me via email">Hire me</a>
+                  </Button>
+                </SheetClose>
               </div>
             </SheetContent>
           </Sheet>
