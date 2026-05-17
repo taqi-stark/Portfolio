@@ -143,6 +143,16 @@ export const portfolio: PortfolioData = {
 
   projects: [
     {
+      name: "LinguaBridge AI",
+      summary:
+        "An AI-powered multilingual translation and language-learning platform designed to break down communication barriers. It features context-aware text translation, OCR document processing (translating from images and PDFs), a push-to-talk voice interpreter, and an interactive roleplay language coach. Built to handle complex use cases like translating structured files while protecting technical terms, it serves students, immigrants, travelers, and professionals looking for an all-in-one smart communication assistant.",
+      tech: ["React", "TailwindCSS", "Cloudflare Workers", "Supabase", "Gemini", "OpenAI"],
+      role: "Full-Stack Developer",
+      live: "https://linguabridge-ai.alitaqiuos.workers.dev",
+      repo: "https://github.com/taqi-stark/linguabridge-ai",
+      featured: true,
+    },
+    {
       name: "Medical Report Analyzer & Chatbot",
       summary:
         "Developed a backend system that processes medical reports, extracts relevant clinical information, and generates simplified summaries for users. The system exposes APIs built with FastAPI that handle report uploads, parsing, and structured data extraction. Redis is used for caching frequently accessed reports, while MySQL stores processed data. A chatbot interface integrates with the backend to allow users to query medical insights interactively, making the system both analytical and conversational.",
