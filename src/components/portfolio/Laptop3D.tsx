@@ -1,0 +1,134 @@
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import { Float } from "@react-three/drei";
+import { motion, useTransform, type MotionValue } from "framer-motion";
+import { useRef, Suspense, useState, useEffect } from "react";
+import * as THREE from "three";
+
+const Laptop = ({ progress }: { progress: MotionValue<number> }) => {
+  const group = useRef<THREE.Group>(null);
+  const lid = useRef<THREE.Group>(null);
+
+  useFrame(() => {
+    const p = progress.get();
+    if (group.current) {
+      // Subtle model motion — main movement is the camera.
+      group.current.rotation.y = -0.4 + p * 0.6;
+      group.current.position.y = -0.1 + Math.sin(p * Math.PI) * 0.15;
+    }
+    if (lid.current) {
+      // Open lid smoothly across first third of scroll
+      const open = Math.min(p * 3, 1);
+      lid.current.rotation.x = -Math.PI / 2 + open * (Math.PI / 2 - 0.15);
+    }
+  });
+
+  return (
+    <group ref={group} position={[0, 0, 0]}>
+      {/* Base */}
+      <mesh castShadow receiveShadow position={[0, -0.05, 0]}>
+        <boxGeometry args={[3, 0.12, 2]} />
+        <meshStandardMaterial color="#1a1a2e" metalness={0.85} roughness={0.25} />
+      </mesh>
+      {/* Keyboard area */}
+      <mesh position={[0, 0.012, 0]}>
+        <boxGeometry args={[2.7, 0.005, 1.7]} />
+        <meshStandardMaterial color="#0a0a1a" metalness={0.6} roughness={0.5} />
+      </mesh>
+      {/* Trackpad */}
+      <mesh position={[0, 0.015, 0.55]}>
+        <boxGeometry args={[1.1, 0.005, 0.7]} />
+        <meshStandardMaterial color="#2a2a4a" metalness={0.7} roughness={0.3} />
+      </mesh>
+
+      {/* Lid pivot */}
+      <group ref={lid} position={[0, 0, -1]}>
+        <mesh castShadow position={[0, 1, 0]}>
+          <boxGeometry args={[3, 2, 0.08]} />
+          <meshStandardMaterial color="#141432" metalness={0.85} roughness={0.25} />
+        </mesh>
+        {/* Screen */}
+        <mesh position={[0, 1, 0.045]}>
+          <planeGeometry args={[2.8, 1.8]} />
+          <meshStandardMaterial
+            color="#4f46e5"
+            emissive="#7c6cff"
+            emissiveIntensity={1.2}
+            toneMapped={false}
+          />
+        </mesh>
+        {/* Code lines on screen */}
+        {Array.from({ length: 8 }).map((_, i) => (
+          <mesh key={i} position={[-0.9 + (i % 2) * 0.3, 1.6 - i * 0.18, 0.05]}>
+            <planeGeometry args={[1 + Math.random() * 0.8, 0.06]} />
+            <meshBasicMaterial color={i % 3 === 0 ? "#a5f3fc" : "#c4b5fd"} />
+          </mesh>
+        ))}
+      </group>
+    </group>
+  );
+};
+
+const CameraRig = ({ progress }: { progress: MotionValue<number> }) => {
+  const { camera, invalidate } = useThree();
+  useEffect(() => {
+    const unsub = progress.on("change", () => invalidate());
+    return () => unsub();
+  }, [progress, invalidate]);
+  useFrame(() => {
+    const p = progress.get();
+    // Cinematic dolly: top-down close → orbit around → pull back high
+    const angle = -Math.PI * 0.15 + p * Math.PI * 1.6;
+    const radius = 4.5 + Math.sin(p * Math.PI) * 1.8;
+    const height = 3.2 - p * 1.6 + Math.sin(p * Math.PI * 2) * 0.4;
+    camera.position.x = Math.sin(angle) * radius;
+    camera.position.z = Math.cos(angle) * radius;
+    camera.position.y = height;
+    camera.lookAt(0, 0.4, 0);
+  });
+  return null;
+};
+
+export const Laptop3D = ({ progress }: { progress: MotionValue<number> }) => {
+  const opacity = useTransform(progress, [0, 0.05, 0.95, 1], [0, 0.9, 0.9, 0.2]);
+  const [enabled, setEnabled] = useState(false);
+  useEffect(() => {
+    // Defer mounting the 3D canvas until the browser is idle so initial paint is fast.
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const small = window.innerWidth < 768;
+    if (reduce || small) return; // skip heavy 3D on mobile / reduced-motion
+    const w = window as unknown as { requestIdleCallback?: (cb: () => void) => number };
+    const id = w.requestIdleCallback
+      ? w.requestIdleCallback(() => setEnabled(true))
+      : window.setTimeout(() => setEnabled(true), 600);
+    return () => {
+      if (w.requestIdleCallback) cancelIdleCallback?.(id as number);
+      else clearTimeout(id as number);
+    };
+  }, []);
+  if (!enabled) return null;
+  return (
+    <motion.div
+      className="pointer-events-none fixed inset-0 -z-10 flex items-center justify-center"
+      style={{ opacity }}
+    >
+      <div className="h-[80vh] w-full max-w-5xl">
+        <Canvas
+          camera={{ position: [0, 3, 5.5], fov: 42 }}
+          dpr={[1, 1.25]}
+          frameloop="demand"
+          gl={{ antialias: false, powerPreference: "high-performance", alpha: true }}
+        >
+          <Suspense fallback={null}>
+            <CameraRig progress={progress} />
+            <ambientLight intensity={0.7} />
+            <directionalLight position={[5, 6, 4]} intensity={1.1} />
+            <pointLight position={[-4, 2, -2]} intensity={1.2} color="#7c6cff" />
+            <Float speed={1} rotationIntensity={0.05} floatIntensity={0.15}>
+              <Laptop progress={progress} />
+            </Float>
+          </Suspense>
+        </Canvas>
+      </div>
+    </motion.div>
+  );
+};
