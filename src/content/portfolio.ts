@@ -110,6 +110,7 @@ export const portfolio = {
       period: "10/09/2026 – CURRENT",
       logoType: "limeox",
       tech: ["Python", "Jupyter", "scikit-learn", "Git"],
+      highlight: "Building practical AI/ML skills through algorithms, neural networks, and hands-on Python experiments.",
       points: [
         "Developing practical skills in Artificial Intelligence and Machine Learning.",
         "Studying machine learning algorithms, neural networks, and deep learning.",
@@ -119,20 +120,21 @@ export const portfolio = {
       ]
     },
     {
-      role: "Backend Developer Intern",
+      role: "IT Intern",
       company: "ValuePrice",
       location: "Sargodha, Pakistan",
-      fullRole: "Backend Developer Intern",
+      fullRole: "IT Intern",
       fullCompany: "ValuePrice · Sargodha, Pakistan",
       period: "15/10/2025 – 15/12/2025",
       logoType: "valueprice",
-      tech: ["Python", "FastAPI", "MySQL", "Git", "GitHub"],
+      tech: ["Networking", "Windows", "Hardware", "Git"],
+      highlight: "Supported day-to-day IT operations with systems troubleshooting, networking, and digital documentation.",
       points: [
-        "Developed backend APIs using Python and FastAPI.",
-        "Designed and implemented RESTful API endpoints and database integrations.",
-        "Worked on backend architecture, authentication, and API testing.",
-        "Contributed to the design and initial development of my Final Year Project (FYP), a Smart Healthcare Ecosystem.",
-        "Collaborated on integrating backend services with frontend and AI-powered components."
+        "Provided IT and technical support for day-to-day operations.",
+        "Assisted with computer systems, software, networking, and troubleshooting.",
+        "Supported data management and digital documentation.",
+        "Assisted in maintaining and configuring IT systems and equipment.",
+        "Contributed to software and technology-related tasks to improve internal workflows."
       ]
     },
     {
@@ -144,6 +146,7 @@ export const portfolio = {
       period: "03/08/2026 – 03/09/2026",
       logoType: "agritech",
       tech: ["Networking", "Windows", "Git"],
+      highlight: "Delivered IT support across systems, networking, and equipment setup to keep internal workflows running smoothly.",
       points: [
         "Provided IT and technical support for day-to-day operations.",
         "Assisted with computer systems, software, networking, and troubleshooting.",

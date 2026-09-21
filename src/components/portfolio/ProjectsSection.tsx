@@ -210,7 +210,7 @@ export const ProjectsSection = () => {
   return (
     <section
       id="projects"
-      className="h-screen min-h-screen snap-start w-full relative overflow-hidden diagonal-split-bg flex flex-col justify-center items-center"
+      className="min-h-screen h-auto md:h-screen snap-start w-full relative overflow-visible md:overflow-hidden diagonal-split-bg flex flex-col justify-center items-center pt-20 pb-24 md:py-0"
     >
       {/* Decorative Behind Watermark "PROJECTS" Label in Wide Letter-Spacing */}
       <div
@@ -222,8 +222,8 @@ export const ProjectsSection = () => {
 
       {/* Horizontal Two-Finger Swipe / Trackpad Scroll Container */}
       <HorizontalSwipeContainer
-        className="w-full h-full cursor-grab active:cursor-grabbing select-none relative z-10"
-        itemClassName="w-screen min-w-full h-full flex flex-col justify-center items-center px-4 py-8 sm:py-12"
+        className="w-full min-h-[70vh] md:h-full select-none relative z-10"
+        itemClassName="w-screen min-w-full min-h-[70vh] md:h-full flex flex-col justify-center items-center px-4 py-8 sm:py-12"
       >
         {showcaseProjects.map((project, index) => (
           <div

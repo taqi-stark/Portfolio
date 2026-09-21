@@ -31,7 +31,7 @@ export const ContactSection = () => {
   return (
     <section
       id="contact"
-      className="h-screen min-h-screen snap-start w-full flex flex-col justify-center items-center relative overflow-hidden bg-[#f7f8f9] py-16 px-4"
+      className="min-h-screen h-auto md:h-screen snap-start w-full flex flex-col justify-center items-center relative overflow-visible md:overflow-hidden bg-[#f7f8f9] pt-20 pb-24 md:py-16 px-4"
     >
       <motion.div
         initial={{ opacity: 0, y: -20 }}
