@@ -9,7 +9,7 @@ import { HomeButton } from "@/components/portfolio/HomeButton";
 import { ScrollIndicator } from "@/components/portfolio/ScrollIndicator";
 
 const Index = () => (
-  <div className="relative min-h-screen bg-[#f7f8f9] text-[#1c1c1c] overflow-x-hidden font-sans snap-y snap-mandatory selection:bg-[#4d8f8b]/20">
+  <div className="relative min-h-screen bg-white text-black overflow-x-hidden font-sans md:snap-y md:snap-mandatory selection:bg-[#4d8f8b]/20">
     {/* Global Persistent Chrome */}
     <Header />
     <ScrollIndicator />

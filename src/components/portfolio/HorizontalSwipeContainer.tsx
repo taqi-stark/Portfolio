@@ -18,6 +18,7 @@ export const HorizontalSwipeContainer: React.FC<HorizontalSwipeContainerProps> =
         scrollbarWidth: "none",
         msOverflowStyle: "none",
         WebkitOverflowScrolling: "touch",
+        scrollSnapType: "x mandatory",
       }}
     >
       {React.Children.map(children, (child, idx) => {
@@ -26,6 +27,7 @@ export const HorizontalSwipeContainer: React.FC<HorizontalSwipeContainerProps> =
           <div
             key={idx}
             className={`snap-center shrink-0 ${itemClassName}`}
+            style={{ scrollSnapAlign: "center" }}
           >
             {child}
           </div>

@@ -31,7 +31,7 @@ export const ContactSection = () => {
   return (
     <section
       id="contact"
-      className="min-h-screen h-auto md:h-screen snap-start w-full flex flex-col justify-center items-center relative overflow-visible md:overflow-hidden bg-[#f7f8f9] py-12 md:py-16 px-4"
+      className="h-auto md:h-screen md:min-h-screen snap-start w-full flex flex-col justify-center items-center relative overflow-x-hidden md:overflow-hidden bg-white py-8 md:py-16 px-4"
     >
       <motion.div
         initial={{ opacity: 0, y: -20 }}
@@ -43,7 +43,7 @@ export const ContactSection = () => {
         <p className="uppercase text-xs sm:text-[13px] tracking-[0.3em] text-[#9a9fa5] font-medium mb-3">
           GET IN TOUCH
         </p>
-        <h3 className="font-display font-bold text-2xl sm:text-[34px] md:text-[36px] text-[#1c1c1c] tracking-tight">
+        <h3 className="font-display font-bold text-2xl sm:text-[34px] md:text-[36px] text-[#000000] tracking-tight">
           Let&apos;s build something <span className="underline decoration-[#4d8f8b] decoration-[2px] underline-offset-8">scalable</span>
         </h3>
       </motion.div>
@@ -52,9 +52,9 @@ export const ContactSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
           {/* Direct Info */}
           <div className="md:col-span-5 space-y-6">
-            <div className="space-y-4 text-sm text-[#1c1c1c]">
+            <div className="space-y-4 text-sm text-[#000000]">
               <div className="flex items-center gap-3">
-                <div className="p-2.5 rounded-full bg-[#f7f8f9] border border-[#d8dcdf] text-[#4d8f8b]">
+                <div className="p-2.5 rounded-full bg-[#ffffff] border border-[#d8dcdf] text-[#4d8f8b]">
                   <Mail className="w-4 h-4" />
                 </div>
                 <div>
@@ -63,7 +63,7 @@ export const ContactSection = () => {
                   </span>
                   <a
                     href={`mailto:${portfolio.email}`}
-                    className="font-medium text-[#1c1c1c] hover:text-[#4d8f8b] transition-colors"
+                    className="font-medium text-[#000000] hover:text-[#4d8f8b] transition-colors"
                   >
                     {portfolio.email}
                   </a>
@@ -71,21 +71,21 @@ export const ContactSection = () => {
               </div>
 
               <div className="flex items-center gap-3">
-                <div className="p-2.5 rounded-full bg-[#f7f8f9] border border-[#d8dcdf] text-[#4d8f8b]">
+                <div className="p-2.5 rounded-full bg-[#ffffff] border border-[#d8dcdf] text-[#4d8f8b]">
                   <MapPin className="w-4 h-4" />
                 </div>
                 <div>
                   <span className="text-[11px] uppercase tracking-wider text-[#9a9fa5] block font-mono">
                     LOCATION
                   </span>
-                  <span className="font-medium text-[#1c1c1c]">{portfolio.location}</span>
+                  <span className="font-medium text-[#000000]">{portfolio.location}</span>
                 </div>
               </div>
             </div>
 
             <button
               onClick={copyEmail}
-              className="w-full py-2.5 px-4 rounded-full border border-[#d8dcdf] hover:bg-[#f7f8f9] text-xs font-mono tracking-wider text-[#1c1c1c] flex items-center justify-center gap-2 transition-colors shadow-xs"
+              className="w-full py-2.5 px-4 rounded-full border border-[#d8dcdf] hover:bg-[#ffffff] text-xs font-mono tracking-wider text-[#000000] flex items-center justify-center gap-2 transition-colors shadow-xs"
             >
               {copied ? (
                 <>
@@ -110,7 +110,7 @@ export const ContactSection = () => {
                 required
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="w-full px-3.5 py-2 rounded-xl bg-[#f7f8f9] border border-[#d8dcdf] text-xs font-sans text-[#1c1c1c] placeholder:text-[#9a9fa5] focus:outline-none focus:border-[#4d8f8b]"
+                className="w-full px-3.5 py-2 rounded-xl bg-[#ffffff] border border-[#d8dcdf] text-xs font-sans text-[#000000] placeholder:text-[#9a9fa5] focus:outline-none focus:border-[#4d8f8b]"
               />
               <input
                 type="email"
@@ -118,7 +118,7 @@ export const ContactSection = () => {
                 required
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="w-full px-3.5 py-2 rounded-xl bg-[#f7f8f9] border border-[#d8dcdf] text-xs font-sans text-[#1c1c1c] placeholder:text-[#9a9fa5] focus:outline-none focus:border-[#4d8f8b]"
+                className="w-full px-3.5 py-2 rounded-xl bg-[#ffffff] border border-[#d8dcdf] text-xs font-sans text-[#000000] placeholder:text-[#9a9fa5] focus:outline-none focus:border-[#4d8f8b]"
               />
             </div>
             <input
@@ -126,7 +126,7 @@ export const ContactSection = () => {
               placeholder="Subject"
               value={formData.subject}
               onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-              className="w-full px-3.5 py-2 rounded-xl bg-[#f7f8f9] border border-[#d8dcdf] text-xs font-sans text-[#1c1c1c] placeholder:text-[#9a9fa5] focus:outline-none focus:border-[#4d8f8b]"
+              className="w-full px-3.5 py-2 rounded-xl bg-[#ffffff] border border-[#d8dcdf] text-xs font-sans text-[#000000] placeholder:text-[#9a9fa5] focus:outline-none focus:border-[#4d8f8b]"
             />
             <textarea
               rows={3}
@@ -134,7 +134,7 @@ export const ContactSection = () => {
               required
               value={formData.message}
               onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-              className="w-full px-3.5 py-2 rounded-xl bg-[#f7f8f9] border border-[#d8dcdf] text-xs font-sans text-[#1c1c1c] placeholder:text-[#9a9fa5] focus:outline-none focus:border-[#4d8f8b] resize-none"
+              className="w-full px-3.5 py-2 rounded-xl bg-[#ffffff] border border-[#d8dcdf] text-xs font-sans text-[#000000] placeholder:text-[#9a9fa5] focus:outline-none focus:border-[#4d8f8b] resize-none"
             />
             <button
               type="submit"

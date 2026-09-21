@@ -4,7 +4,7 @@ export const AboutSection = () => {
   return (
     <section
       id="about"
-      className="relative h-auto md:h-screen min-h-0 md:min-h-screen snap-start w-full flex flex-col md:flex-row items-stretch overflow-visible md:overflow-hidden bg-[#f7f8f9] pt-16 pb-10 md:pt-0 md:pb-0"
+      className="relative h-auto md:h-screen md:min-h-screen snap-start w-full flex flex-col md:flex-row items-stretch overflow-x-hidden md:overflow-hidden bg-white pt-14 pb-6 md:pt-0 md:pb-0"
     >
       {/* Left Column: Circular avatar on mobile, inset rounded photo on desktop */}
       <div className="w-full md:w-1/2 flex items-center justify-center pt-4 pb-4 md:py-10 md:h-full shrink-0 px-6">
@@ -22,7 +22,7 @@ export const AboutSection = () => {
             ABOUT
           </p>
 
-          <h2 className="font-display font-bold text-2xl sm:text-[34px] md:text-[36px] text-[#1c1c1c] tracking-tight mb-6">
+          <h2 className="font-display font-bold text-2xl sm:text-[34px] md:text-[36px] text-[#000000] tracking-tight mb-6">
             Here is a{" "}
             <span className="underline decoration-[#4d8f8b] decoration-[2px] underline-offset-8">
               little
@@ -30,7 +30,7 @@ export const AboutSection = () => {
             background
           </h2>
 
-          <div className="space-y-4 text-[#1c1c1c]/85 text-sm leading-[1.65] sm:text-base sm:leading-[1.8] sm:text-[17px] font-sans">
+          <div className="space-y-4 text-[#000000]/85 text-sm leading-[1.65] sm:text-base sm:leading-[1.8] sm:text-[17px] font-sans">
             <p>
               Hey there 👋 My name is Ali Taqi, an AI/ML and Backend Engineer obsessed with building intelligent systems that run reliably at production scale.
             </p>

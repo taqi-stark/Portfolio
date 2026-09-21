@@ -1,7 +1,7 @@
 import { portfolio } from "@/content/portfolio";
 import { TechIcon } from "./TechBrandIcons";
 import { HorizontalSwipeContainer } from "./HorizontalSwipeContainer";
-import { Github, ExternalLink, Activity, Database, Stethoscope, Languages, Globe } from "lucide-react";
+import { Github, ExternalLink, Activity, Stethoscope, Languages, Globe } from "lucide-react";
 
 export const ProjectsSection = () => {
   const showcaseProjects = portfolio.projects.slice(0, 4);
@@ -129,7 +129,7 @@ export const ProjectsSection = () => {
     switch (index) {
       case 0:
         return (
-          <div className="w-full h-full bg-[#1c1c1c] text-white p-3 font-mono text-[9px] flex flex-col justify-between">
+          <div className="w-full h-full bg-[#000000] text-white p-3 font-mono text-[9px] flex flex-col justify-between">
             <div className="w-12 h-1 bg-slate-700 rounded-full mx-auto mb-2" />
             <div className="space-y-1 text-slate-300">
               <div className="text-teal-400 font-bold">MOBILE METRICS</div>
@@ -148,7 +148,7 @@ export const ProjectsSection = () => {
         );
       case 1:
         return (
-          <div className="w-full h-full bg-[#1c1c1c] text-white p-3 font-mono text-[9px] flex flex-col justify-between">
+          <div className="w-full h-full bg-[#000000] text-white p-3 font-mono text-[9px] flex flex-col justify-between">
             <div className="w-12 h-1 bg-slate-700 rounded-full mx-auto mb-2" />
             <div className="space-y-1 text-slate-300">
               <div className="text-teal-400 font-bold">MEDINOVA APP</div>
@@ -167,7 +167,7 @@ export const ProjectsSection = () => {
         );
       case 2:
         return (
-          <div className="w-full h-full bg-[#1c1c1c] text-white p-3 font-mono text-[9px] flex flex-col justify-between">
+          <div className="w-full h-full bg-[#000000] text-white p-3 font-mono text-[9px] flex flex-col justify-between">
             <div className="w-12 h-1 bg-slate-700 rounded-full mx-auto mb-2" />
             <div className="space-y-1 text-slate-300">
               <div className="text-teal-400 font-bold">LINGUABRIDGE</div>
@@ -187,7 +187,7 @@ export const ProjectsSection = () => {
       case 3:
       default:
         return (
-          <div className="w-full h-full bg-[#1c1c1c] text-white p-3 font-mono text-[9px] flex flex-col justify-between">
+          <div className="w-full h-full bg-[#000000] text-white p-3 font-mono text-[9px] flex flex-col justify-between">
             <div className="w-12 h-1 bg-slate-700 rounded-full mx-auto mb-2" />
             <div className="space-y-1 text-slate-300">
               <div className="text-teal-400 font-bold">DIGITAL PORTFOLIO</div>
@@ -210,41 +210,34 @@ export const ProjectsSection = () => {
   return (
     <section
       id="projects"
-      className="min-h-screen h-auto md:h-screen snap-start w-full relative overflow-visible md:overflow-hidden diagonal-split-bg flex flex-col justify-center items-center py-12 md:py-0"
+      className="h-auto md:h-screen md:min-h-screen snap-start w-full relative overflow-x-hidden md:overflow-hidden diagonal-split-bg flex flex-col justify-center items-center py-8 md:py-0"
     >
-      {/* Decorative Behind Watermark "PROJECTS" Label in Wide Letter-Spacing */}
       <div
         aria-hidden="true"
-        className="absolute top-8 sm:top-12 left-1/2 -translate-x-1/2 text-6xl sm:text-8xl md:text-9xl font-display font-extrabold text-[#9a9fa5]/20 uppercase tracking-[0.32em] select-none pointer-events-none z-0 whitespace-nowrap"
+        className="absolute top-6 sm:top-12 left-1/2 -translate-x-1/2 text-5xl sm:text-8xl md:text-9xl font-display font-extrabold text-[#9a9fa5]/20 uppercase tracking-[0.32em] select-none pointer-events-none z-0 whitespace-nowrap"
       >
         PROJECTS
       </div>
 
-      {/* Horizontal Two-Finger Swipe / Trackpad Scroll Container */}
       <HorizontalSwipeContainer
-        className="w-full min-h-[70vh] md:h-full select-none relative z-10"
-        itemClassName="w-screen min-w-full min-h-[70vh] md:h-full flex flex-col justify-center items-center px-4 py-8 sm:py-12"
+        className="w-full select-none relative z-10 items-stretch"
+        itemClassName="w-[100vw] max-w-[100vw] flex justify-center items-center px-4 sm:px-6 py-2"
       >
         {showcaseProjects.map((project, index) => (
           <div
             key={project.id}
-            className="w-full max-w-4xl mx-auto flex flex-col items-center justify-center my-auto"
+            className="w-full max-w-[340px] sm:max-w-[560px] md:max-w-4xl mx-auto flex flex-col items-center justify-start h-[560px] sm:h-[620px] md:h-auto md:min-h-0 md:justify-center"
           >
-            {/* Top Mockup Area: Browser Window Mockup + Overlapping Phone Frame */}
-            <div className="relative mb-6 sm:mb-8 w-full max-w-[560px] sm:max-w-[620px]">
-              {/* Browser Window Mockup */}
-              <div className="w-full h-[220px] sm:h-[260px] md:h-[280px] rounded-2xl bg-white shadow-xl border border-[#d8dcdf] overflow-hidden flex flex-col">
-                {/* Browser Top Bar & Address Bar */}
-                <div className="h-9 bg-[#f0f4f7] border-b border-[#d8dcdf] px-4 flex items-center justify-between shrink-0">
-                  {/* Traffic Light Dots */}
+            <div className="relative mb-5 sm:mb-8 w-full max-w-[560px] shrink-0">
+              <div className="w-full h-[180px] sm:h-[260px] md:h-[280px] rounded-2xl bg-white shadow-xl border border-[#d8dcdf] overflow-hidden flex flex-col">
+                <div className="h-8 sm:h-9 bg-white border-b border-[#d8dcdf] px-3 sm:px-4 flex items-center justify-between shrink-0">
                   <div className="flex items-center gap-1.5">
                     <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f56]" />
                     <span className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]" />
                     <span className="w-2.5 h-2.5 rounded-full bg-[#27c93f]" />
                   </div>
 
-                  {/* Centered Address Pill */}
-                  <div className="w-48 sm:w-64 h-5 bg-white border border-[#d8dcdf] rounded-full text-[10px] text-[#7a7f85] font-mono flex items-center justify-center truncate px-2">
+                  <div className="w-40 sm:w-64 h-5 bg-white border border-[#d8dcdf] rounded-full text-[10px] text-[#7a7f85] font-mono flex items-center justify-center truncate px-2">
                     {project.live && project.live.startsWith("http")
                       ? project.live.replace(/^https?:\/\//, "")
                       : `https://alitaqi.dev/${project.name.toLowerCase().replace(/[^a-z0-9]/g, "-")}`}
@@ -253,34 +246,32 @@ export const ProjectsSection = () => {
                   <div className="w-8" />
                 </div>
 
-                {/* Browser Screen Content */}
                 <div className="flex-1 w-full overflow-hidden">
                   {getProjectPreviewContent(index)}
                 </div>
               </div>
 
-              {/* Overlapping Phone Frame Mockup (on the right) */}
-              <div className="absolute -right-2 -bottom-4 sm:-right-6 sm:-bottom-6 w-[110px] sm:w-[135px] h-[190px] sm:h-[230px] rounded-[22px] sm:rounded-[24px] bg-[#1c1c1c] p-2 shadow-2xl border-2 border-[#1c1c1c] z-20 hidden xs:block">
-                <div className="w-full h-full rounded-[16px] sm:rounded-[18px] overflow-hidden">
+              <div className="absolute -right-1 -bottom-3 sm:-right-6 sm:-bottom-6 w-[90px] sm:w-[135px] h-[155px] sm:h-[230px] rounded-[20px] sm:rounded-[24px] bg-black p-1.5 sm:p-2 shadow-2xl border-2 border-black z-20 hidden sm:block">
+                <div className="w-full h-full rounded-[14px] sm:rounded-[18px] overflow-hidden">
                   {getPhonePreviewContent(index)}
                 </div>
               </div>
             </div>
 
-            {/* Project Heading: "Project N: Name" with "Project N:" bold + underlined */}
-            <h3 className="font-display text-xl sm:text-[26px] md:text-[30px] text-[#1c1c1c] text-center tracking-tight mb-2 sm:mb-3">
-              <span className="font-bold underline decoration-[#4d8f8b] decoration-[2px] underline-offset-8 mr-2">
-                Project {index + 1}:
+            <h3 className="font-display text-base sm:text-[26px] md:text-[30px] text-black text-center tracking-tight mb-2 sm:mb-3 line-clamp-2 min-h-[48px] sm:min-h-[64px] flex items-center justify-center px-1">
+              <span>
+                <span className="font-bold underline decoration-[#4d8f8b] decoration-[2px] underline-offset-4 sm:underline-offset-8 mr-1.5">
+                  Project {index + 1}:
+                </span>
+                <span className="font-bold">{project.name}</span>
               </span>
-              <span className="font-bold">{project.name}</span>
             </h3>
 
-            {/* Row of Small Tech-Stack Icon Circles */}
-            <div className="flex items-center justify-center gap-2 sm:gap-2.5 mb-3 sm:mb-4 flex-wrap max-w-xl">
-              {project.tech.map((techName) => (
+            <div className="flex items-center justify-center gap-2 sm:gap-2.5 mb-2 sm:mb-4 flex-wrap max-w-xl h-9 sm:h-10 shrink-0 overflow-hidden">
+              {project.tech.slice(0, 7).map((techName) => (
                 <div
                   key={techName}
-                  className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white border border-[#d8dcdf] shadow-xs flex items-center justify-center hover:scale-110 transition-transform cursor-pointer"
+                  className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white border border-[#d8dcdf] shadow-xs flex items-center justify-center"
                   title={techName}
                 >
                   <TechIcon name={techName} className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -288,19 +279,17 @@ export const ProjectsSection = () => {
               ))}
             </div>
 
-            {/* Description Paragraph */}
-            <p className="max-w-[760px] text-[#1c1c1c]/85 text-xs sm:text-sm md:text-[15px] leading-[1.6] sm:leading-[1.7] text-center font-sans px-4">
+            <p className="max-w-[760px] text-black/85 text-xs sm:text-sm md:text-[15px] leading-[1.55] sm:leading-[1.7] text-center font-sans px-1 line-clamp-3 min-h-[54px] sm:min-h-[72px]">
               {project.summary}
             </p>
 
-            {/* Project Action Links: GITHUB REPO or VIEW PROJECT */}
-            <div className="mt-4 sm:mt-5 flex items-center justify-center gap-4">
+            <div className="mt-auto sm:mt-5 pt-3 flex items-center justify-center gap-3 sm:gap-4 min-h-[40px] shrink-0">
               {project.repo && project.repo.length > 0 && (
                 <a
                   href={project.repo}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-5 py-2 rounded-full border border-[#d8dcdf] bg-white hover:bg-slate-50 text-[#1c1c1c] text-xs font-mono tracking-wider transition-colors shadow-xs hover:border-[#4d8f8b]"
+                  className="inline-flex items-center gap-1.5 px-4 sm:px-5 py-2 rounded-full border border-[#d8dcdf] bg-white hover:bg-slate-50 text-black text-xs font-mono tracking-wider transition-colors shadow-xs hover:border-[#4d8f8b]"
                 >
                   <Github className="w-3.5 h-3.5" />
                   <span>GITHUB REPO</span>
@@ -312,7 +301,7 @@ export const ProjectsSection = () => {
                   href={project.live}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-5 py-2 rounded-full bg-[#4d8f8b] hover:bg-[#3f7774] text-white text-xs font-mono tracking-wider transition-colors shadow-xs"
+                  className="inline-flex items-center gap-1.5 px-4 sm:px-5 py-2 rounded-full bg-[#4d8f8b] hover:bg-[#3f7774] text-white text-xs font-mono tracking-wider transition-colors shadow-xs"
                 >
                   <ExternalLink className="w-3.5 h-3.5" />
                   <span>VIEW PROJECT</span>
@@ -325,4 +314,3 @@ export const ProjectsSection = () => {
     </section>
   );
 };
-

@@ -24,7 +24,7 @@ export const SkillsSection = () => {
   return (
     <section
       id="skills"
-      className="min-h-screen h-auto md:h-screen snap-start w-full flex flex-col items-center justify-center relative overflow-visible md:overflow-hidden bg-[#f7f8f9] py-12 md:py-16 px-4"
+      className="h-auto md:h-screen md:min-h-screen snap-start w-full flex flex-col items-center justify-center relative overflow-x-hidden md:overflow-hidden bg-white py-8 md:py-16 px-4"
     >
       {/* Centered Instruction Label */}
       <motion.div
@@ -32,7 +32,7 @@ export const SkillsSection = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="text-center mb-8 sm:mb-12 z-10"
+        className="text-center mb-5 sm:mb-10 z-10"
       >
         <p className="uppercase text-xs sm:text-[13px] tracking-[0.28em] text-[#9a9fa5] font-medium">
           HOVER OVER A SKILL FOR CURRENT PROFICIENCY
@@ -63,7 +63,7 @@ export const SkillsSection = () => {
 
               {/* Hover State: Icon replaced by proficiency percentage in bold text */}
               <div className="absolute inset-0 rounded-full flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 bg-white select-none px-1 text-center">
-                <span className="font-display font-bold text-base sm:text-[19px] text-[#1c1c1c]">
+                <span className="font-display font-bold text-base sm:text-[19px] text-[#000000]">
                   {skill.proficiency}%
                 </span>
                 <span className="text-[9px] font-mono text-[#4d8f8b] truncate max-w-[64px] block">

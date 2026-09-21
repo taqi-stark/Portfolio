@@ -4,9 +4,9 @@ import { portfolio } from "@/content/portfolio";
 export const Hero = () => {
   const phrases = [
     "I am Ali_Taqi",
-    "I like building scalable backends ⚡",
-    "I like crafting ML pipelines 🧠",
-    "I like solving complex problems 💡"
+    "I build scalable backends",
+    "I craft ML pipelines",
+    "I like to Doom Scroll"
   ];
   const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
   const [currentText, setCurrentText] = useState("");
@@ -39,7 +39,7 @@ export const Hero = () => {
   return (
     <section
       id="hero"
-      className="relative h-screen min-h-screen snap-start flex flex-col items-center justify-center text-center overflow-hidden bg-[#f7f8f9] px-4"
+      className="relative h-screen min-h-screen snap-start flex flex-col items-center justify-center text-center overflow-hidden bg-[#ffffff] px-4"
     >
       {/* Large Decorative Circle Outline (~620px diameter, 1px #d8dcdf) */}
       <div
@@ -69,7 +69,7 @@ export const Hero = () => {
         </p>
 
         {/* Display Headline with Typewriter Loop & Blinking Teal Cursor */}
-        <h1 className="font-display font-bold text-3xl sm:text-5xl md:text-[54px] text-[#1c1c1c] tracking-tight min-h-[56px] sm:min-h-[72px] flex items-center justify-center px-4">
+        <h1 className="font-display font-bold text-3xl sm:text-5xl md:text-[54px] text-[#000000] tracking-tight min-h-[56px] sm:min-h-[72px] flex items-center justify-center px-4">
           <span>{currentText}</span>
           <span className="typewriter-cursor" />
         </h1>
@@ -83,7 +83,7 @@ export const Hero = () => {
             <a
               key={link.label}
               href={link.href}
-              className="uppercase text-xs sm:text-[13px] tracking-[0.28em] text-[#9a9fa5] hover:text-[#1c1c1c] font-medium transition-colors"
+              className="uppercase text-xs sm:text-[13px] tracking-[0.28em] text-[#9a9fa5] hover:text-[#000000] font-medium transition-colors"
             >
               {link.label}
             </a>
