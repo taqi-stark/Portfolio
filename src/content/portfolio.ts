@@ -171,6 +171,11 @@ export const portfolio = {
       pipeline: "Raw EEG Multi-Lead → Bandpass & Notch Filtering → Wavelet & Spectral Power Extraction → CNN / BiLSTM Classifier → 10-Fold Cross-Validation & ROC-AUC → Low-Latency FastAPI Inference Service",
       engineering: "Designed memory-efficient sliding-window segmentation, channel selection optimization algorithms, and a containerized inference service delivering <30ms latency.",
       outcome: "Validated reproducible ML pipeline achieving high sensitivity and specificity across patient-independent benchmark evaluation datasets.",
+      images: [
+        "/projects/ml/ml2.png",
+        "/projects/ml/ml1.png",
+        "/projects/ml/ml3.png",
+      ],
       repo: "https://github.com/taqi-stark",
       live: "",
       role: "Lead ML & Pipeline Engineer"
@@ -188,6 +193,11 @@ export const portfolio = {
       pipeline: "React Frontend → Laravel & FastAPI Services → MySQL Multi-tenant Database → AI Chatbot & OCR Engine → Role-based Access Layer",
       engineering: "Designed unified authentication with JWT role-based access control (Patient, Doctor, Admin) and integrated OCR for automated medical report parameter parsing.",
       outcome: "Shipped fully integrated medical portal supporting appointment scheduling, blood inventory tracking, and automated report triage.",
+      images: [
+        "/projects/medinova/blood-bank.png",
+        "/projects/medinova/hero.png",
+        "/projects/medinova/about.png"
+      ],
       repo: "",
       live: "https://medinova-health1.vercel.app/",
       role: "Full-Stack & Backend Architect"
@@ -205,6 +215,11 @@ export const portfolio = {
       pipeline: "User Audio/Text/Image → OCR & Whisper Ingestion → LLM Roleplay Engine (OpenAI/Gemini/DeepL) → Spaced Repetition Matrix → Interactive Feedback UI",
       engineering: "Architected low-latency conversational streaming with FastAPI and integrated DeepL API with dual fallback to generative LLMs for nuanced cultural idiomatic translations.",
       outcome: "Empowered learners with real-time roleplay dialogues, camera-to-flashcard OCR extraction, and adaptive vocabulary mastery tracking.",
+      images: [
+        "/projects/linguabridge/workspace.png",
+        "/projects/linguabridge/hero.png",
+        "/projects/linguabridge/guides.png"
+      ],
       repo: "",
       live: "https://linguabridge-ai.alitaqiuos.workers.dev/",
       role: "AI & Full-Stack Engineer"
@@ -222,6 +237,11 @@ export const portfolio = {
       pipeline: "Next.js 14 App Router → Responsive Tailwind Component Architecture → Optimized Dynamic Asset Delivery → Interactive Service Demos",
       engineering: "Engineered responsive modular components, high-contrast typography, and dynamic interactive service showcases with sub-second page loads.",
       outcome: "High-performance digital platform presenting comprehensive software services and live engineering demonstrations for enterprise clients.",
+      images: [
+        "/projects/buisness/buis2.png",
+        "/projects/buisness/buis1.png",
+        "/projects/buisness/buis3.png"
+      ],
       repo: "",
       live: "https://alitaqibuis.vercel.app/",
       role: "Lead Frontend & Solutions Architect"
