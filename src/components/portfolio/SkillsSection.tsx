@@ -24,7 +24,7 @@ export const SkillsSection = () => {
   return (
     <section
       id="skills"
-      className="min-h-screen h-auto md:h-screen snap-start w-full flex flex-col items-center justify-center relative overflow-visible md:overflow-hidden bg-[#f7f8f9] pt-20 pb-24 md:py-16 px-4"
+      className="min-h-screen h-auto md:h-screen snap-start w-full flex flex-col items-center justify-center relative overflow-visible md:overflow-hidden bg-[#f7f8f9] py-12 md:py-16 px-4"
     >
       {/* Centered Instruction Label */}
       <motion.div

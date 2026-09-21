@@ -3,7 +3,7 @@ import { portfolio } from "@/content/portfolio";
 
 export const Hero = () => {
   const phrases = [
-    "I like riding my 🚲",
+    "I am Ali_Taqi",
     "I like building scalable backends ⚡",
     "I like crafting ML pipelines 🧠",
     "I like solving complex problems 💡"
@@ -49,13 +49,18 @@ export const Hero = () => {
 
       {/* Content Stack inside the Circle */}
       <div className="relative z-10 flex flex-col items-center max-w-4xl mx-auto">
-        {/* Circular Grayscale Profile Photo (~145px diameter) */}
-        <div className="w-[140px] h-[140px] sm:w-[150px] sm:h-[150px] rounded-full overflow-hidden border border-[#d8dcdf] bg-white shadow-sm mb-6 flex-shrink-0">
-          <img
-            src="/profile.jpg"
-            alt={portfolio.name}
-            className="w-full h-full object-cover object-top filter grayscale"
-          />
+        {/* Circular Grayscale Profile Photo (~145px diameter) with water ripple */}
+        <div className="relative w-[140px] h-[140px] sm:w-[150px] sm:h-[150px] mb-6 flex-shrink-0 flex items-center justify-center">
+          <span className="profile-ripple" aria-hidden="true" />
+          <span className="profile-ripple" aria-hidden="true" />
+          <span className="profile-ripple" aria-hidden="true" />
+          <div className="relative z-10 w-full h-full rounded-full overflow-hidden border border-[#d8dcdf] bg-white shadow-sm">
+            <img
+              src="/profile.jpg"
+              alt={portfolio.name}
+              className="w-full h-full object-cover object-top filter grayscale"
+            />
+          </div>
         </div>
 
         {/* Uppercase Role Label */}

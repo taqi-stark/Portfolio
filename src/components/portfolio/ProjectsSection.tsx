@@ -210,7 +210,7 @@ export const ProjectsSection = () => {
   return (
     <section
       id="projects"
-      className="min-h-screen h-auto md:h-screen snap-start w-full relative overflow-visible md:overflow-hidden diagonal-split-bg flex flex-col justify-center items-center pt-20 pb-24 md:py-0"
+      className="min-h-screen h-auto md:h-screen snap-start w-full relative overflow-visible md:overflow-hidden diagonal-split-bg flex flex-col justify-center items-center py-12 md:py-0"
     >
       {/* Decorative Behind Watermark "PROJECTS" Label in Wide Letter-Spacing */}
       <div

@@ -121,24 +121,6 @@ export const portfolio = {
     },
     {
       role: "IT Intern",
-      company: "ValuePrice",
-      location: "Sargodha, Pakistan",
-      fullRole: "IT Intern",
-      fullCompany: "ValuePrice · Sargodha, Pakistan",
-      period: "15/10/2025 – 15/12/2025",
-      logoType: "valueprice",
-      tech: ["Networking", "Windows", "Hardware", "Git"],
-      highlight: "Supported day-to-day IT operations with systems troubleshooting, networking, and digital documentation.",
-      points: [
-        "Provided IT and technical support for day-to-day operations.",
-        "Assisted with computer systems, software, networking, and troubleshooting.",
-        "Supported data management and digital documentation.",
-        "Assisted in maintaining and configuring IT systems and equipment.",
-        "Contributed to software and technology-related tasks to improve internal workflows."
-      ]
-    },
-    {
-      role: "IT Intern",
       company: "Agritech Fertilizers Limited",
       location: "Daud Khel, Mianwali, Pakistan",
       fullRole: "IT Intern",
@@ -153,6 +135,24 @@ export const portfolio = {
         "Supported data management and digital documentation.",
         "Assisted in maintaining and configuring IT systems and equipment.",
         "Contributed to software and technology-related tasks to improve internal workflows."
+      ]
+    },
+    {
+      role: "Backend Developer Intern",
+      company: "ValuePrice",
+      location: "Sargodha, Pakistan",
+      fullRole: "Backend Developer Intern",
+      fullCompany: "ValuePrice · Sargodha, Pakistan",
+      period: "15/10/2025 – 15/12/2025",
+      logoType: "valueprice",
+      tech: ["Python", "FastAPI", "MySQL", "Git", "GitHub"],
+      highlight: "Built FastAPI backend APIs with MySQL and contributed to a Smart Healthcare ecosystem FYP.",
+      points: [
+        "Developed backend APIs using Python and FastAPI.",
+        "Designed and implemented RESTful API endpoints and database integrations.",
+        "Worked on backend architecture, authentication, and API testing.",
+        "Contributed to the design and initial development of my Final Year Project (FYP), a Smart Healthcare Ecosystem.",
+        "Collaborated on integrating backend services with frontend and AI-powered components."
       ]
     }
   ],

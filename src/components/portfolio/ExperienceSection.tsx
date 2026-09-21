@@ -34,7 +34,7 @@ export const ExperienceSection = () => {
   return (
     <section
       id="experience"
-      className="min-h-screen h-auto md:h-screen snap-start w-full flex flex-col justify-center items-center relative overflow-visible md:overflow-hidden bg-[#f7f8f9] pt-20 pb-24 md:py-12 px-4"
+      className="min-h-screen h-auto md:h-screen snap-start w-full flex flex-col justify-center items-center relative overflow-visible md:overflow-hidden bg-[#f7f8f9] py-12 md:py-12 px-4"
     >
       {/* Centered "EXPERIENCE" Label */}
       <div className="text-center mb-6 sm:mb-8 z-10 shrink-0">
