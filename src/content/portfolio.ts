@@ -20,7 +20,7 @@ export const portfolio = {
     linkedin: "https://www.linkedin.com/in/ali-taqi-171b863a9",
     twitter: "https://twitter.com/",
     github: "https://github.com/taqi-stark",
-    instagram: "https://instagram.com/",
+    instagram: "https://instagram.com/ali___taqi",
     email: "mailto:alitaqiuos@gmail.com"
   },
 
